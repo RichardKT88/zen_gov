@@ -1,6 +1,5 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs' 
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
 
 import Home from '../views/Home';
 import Profile from '../views/Profile';
@@ -12,7 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const BottomTab = createBottomTabNavigator()
 
 export default props => (
-    <BottomTab.Navigator initialRouteName="Home" 
+    <BottomTab.Navigator initialRouteName="Home"
     screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -39,19 +38,18 @@ export default props => (
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#00838F',        
-        //showLabel: false,
-        //labelStyle: { fontSize: 30 }                
+        tabBarActiveTintColor: '#00838F',                    
         tabBarStyle:{
             backgroundColor: '#4B4952',
         },
         headerStyle: {
-        backgroundColor: '#00838F',        
+        backgroundColor: '#00838F',              
         
         },
         headerTintColor: '#FAF9FE',
         headerTitleStyle: {
-            fontWeight: 'bold',
+            fontSize: 36,
+            fontFamily: 'Permanent Marker Regular'         
         },
     })}>
         <BottomTab.Screen name="Back" component={Back}/>
