@@ -2,17 +2,18 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 
-const Saude = () => {
+const PaymentScreen = () => {
     return (
         <View style={styles.screen}>
-            <Text style={styles.text}>Perfil</Text>
-            <Text style={styles.text}>Em construção!!!</Text>
+            <Text style={styles.text}>Assinatura</Text>
+            <Text style={styles.text}>Em construção.</Text>
+            <Text style={styles.text}>Coloque coisas aqui!!!</Text>
 
         </View>
     )
 }
 
-export default Saude
+export default PaymentScreen
 
 const styles = StyleSheet.create({
     screen:{

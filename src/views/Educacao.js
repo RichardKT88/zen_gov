@@ -5,9 +5,8 @@ import { StyleSheet, Text, View } from 'react-native'
 const Saude = () => {
     return (
         <View style={styles.screen}>
-            <Text style={styles.text}>Perfil</Text>
-            <Text style={styles.text}>Em construção!!!</Text>
-
+            <Text style={styles.text}>Educação</Text>
+            <Text style={styles.text}>Coloque coisas aqui!!!</Text>
         </View>
     )
 }
@@ -20,10 +19,10 @@ const styles = StyleSheet.create({
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'#2E2D33',
+        backgroundColor:'#00000025',
     },
     text:{
-        color:'#fff',
+        color:'#000',
         fontWeight:'700',
         fontSize:30
     },
