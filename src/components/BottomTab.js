@@ -45,7 +45,7 @@ export default props => (
             height: 55
         },
         headerStyle: {
-        backgroundColor: '#00838F',              
+            backgroundColor: '#00838F',              
         
         },
         headerTintColor: '#FAF9FE',
