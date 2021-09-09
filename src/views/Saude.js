@@ -50,7 +50,7 @@ const Saude = () => {
                 height={height}
                 width={width}
                 chartConfig={{ 
-                    backgroundColor: '#2E2D33',
+                    backgroundColor: '#fff',
                     backgroundGradientFrom: '#43a047',
                     backgroundGradientTo: '#66bb6a',
                     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
@@ -61,8 +61,8 @@ const Saude = () => {
         </List.Accordion>         
         <List.Accordion style={styles.text} title="Top 5 - Gastos" id="3" titleStyle={{color: '#fff', fontSize:18}} style={styles.screen}>
           <DataTable style={{backgroundColor:'#fff'}}>
-                <DataTable.Header>
-                    <DataTable.Title>Dessert</DataTable.Title>
+                <DataTable.Header style={{backgroundColor:'#00838F'}}>
+                    <DataTable.Title >Dessert</DataTable.Title>
                     <DataTable.Title numeric>Calories</DataTable.Title>
                     <DataTable.Title numeric>Fat</DataTable.Title>
                 </DataTable.Header>
@@ -71,6 +71,24 @@ const Saude = () => {
                     <DataTable.Cell>Frozen yogurt</DataTable.Cell>
                     <DataTable.Cell numeric>159</DataTable.Cell>
                     <DataTable.Cell numeric>6.0</DataTable.Cell>
+                </DataTable.Row>
+                
+                <DataTable.Row>
+                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
+                    <DataTable.Cell numeric>159</DataTable.Cell>
+                    <DataTable.Cell numeric>6.0</DataTable.Cell>
+                </DataTable.Row>
+
+                <DataTable.Row>
+                    <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
+                    <DataTable.Cell numeric>237</DataTable.Cell>
+                    <DataTable.Cell numeric>8.0</DataTable.Cell>
+                </DataTable.Row>
+
+                <DataTable.Row>
+                    <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
+                    <DataTable.Cell numeric>237</DataTable.Cell>
+                    <DataTable.Cell numeric>8.0</DataTable.Cell>
                 </DataTable.Row>
 
                 <DataTable.Row>
