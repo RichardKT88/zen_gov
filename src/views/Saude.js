@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
-import { StyleSheet, View, Text, Dimensions, ScrollView } from 'react-native';
+import React from 'react';
+import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { List, DataTable } from 'react-native-paper';
 import { BarChart, PieChart } from "react-native-chart-kit";
+
+import { dataPie, dataBar } from '../data/SaudeData';
 
 const Saude = () => {
 
@@ -13,105 +15,107 @@ const Saude = () => {
     React.useEffect(() => {
         setPage(0);
     }, [itemsPerPage]);
-    //DATA TABLE CONSTANTS
-
-    //LIST ACCORDION CONSTANTS
-    const [expanded, setExpanded] = React.useState(true);
-    const handlePress = () => setExpanded(!expanded);
-    //LIST ACCORDION CONSTANTS
+    //DATA TABLE CONSTANTS   
    
     //CHARTS CONSTANTS
     const width = Dimensions.get('window').width
     const height = 220
     //CHARTS CONSTANTS    
 
-    return (
+  return (
        
-<ScrollView style={styles.screen}>
-        <List.AccordionGroup>
-        <List.Accordion title="Total Gasto Vs Receita $" id="1" titleStyle={{color: '#fff', fontSize:18}} style={styles.screen}>
-         
-              <BarChart
-                width={width}
-                height={height}
-                data={dataBar}
-                chartConfig={ {
-                    backgroundColor: '#2E2D33',
-                    backgroundGradientFrom: '#ffffff',
-                    backgroundGradientTo: '#ffffff',
-                    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`}}
-              />
-           
-        </List.Accordion>
-        <List.Accordion title="Top 5 - Contratos" id="2" titleStyle={{color: '#fff', fontSize:18}} style={styles.screen}>
-        
-          <PieChart
-                data={dataPie}
-                height={height}
-                width={width}
-                chartConfig={{ 
-                    backgroundColor: '#fff',
-                    backgroundGradientFrom: '#43a047',
-                    backgroundGradientTo: '#66bb6a',
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                             }}
-                accessor="population"
-                style={{borderRadius: 16}}
-            />
-        </List.Accordion>         
-        <List.Accordion style={styles.text} title="Top 5 - Gastos" id="3" titleStyle={{color: '#fff', fontSize:18}} style={styles.screen}>
-          <DataTable style={{backgroundColor:'#fff'}}>
-                <DataTable.Header style={{backgroundColor:'#00838F'}}>
-                    <DataTable.Title >Dessert</DataTable.Title>
-                    <DataTable.Title numeric>Calories</DataTable.Title>
-                    <DataTable.Title numeric>Fat</DataTable.Title>
-                </DataTable.Header>
-
-                <DataTable.Row>
-                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                    <DataTable.Cell numeric>159</DataTable.Cell>
-                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                </DataTable.Row>
+      <ScrollView style={styles.screen}>
+              <List.AccordionGroup>
+                <List.Accordion title="Total Gasto Vs Receita $" id="1" titleStyle={styles.text} style={styles.screen}>
                 
-                <DataTable.Row>
-                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                    <DataTable.Cell numeric>159</DataTable.Cell>
-                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                </DataTable.Row>
+                      <BarChart
+                        width={width}
+                        height={height}
+                        data={dataBar}                 
+                        yAxisLabel={'R$'}
+                        chartConfig={{
+                          backgroundGradientFrom: '#4B4952',
+                          backgroundGradientTo: '#4B4952',
+                          decimalPlaces: 3,
+                          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                        }}
+                        style={{
+                          borderRadius: 5,
+                        }}
+                      />
+                  
+                </List.Accordion>
 
-                <DataTable.Row>
-                    <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
-                    <DataTable.Cell numeric>237</DataTable.Cell>
-                    <DataTable.Cell numeric>8.0</DataTable.Cell>
-                </DataTable.Row>
+              <List.Accordion title="Top 5 - Contratos" id="2" titleStyle={styles.text} style={styles.screen}>
+                <PieChart
+                      data={dataPie}
+                      height={height}
+                      width={width}
+                      chartConfig={{ 
+                          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                          }}
+                      accessor="population"
+                      backgroundColor="#4B4952"
+                      paddingLeft="1"
+                      style={{
+                          borderRadius: 5,
+                        }}
+                  />
+              </List.Accordion>
 
-                <DataTable.Row>
-                    <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
-                    <DataTable.Cell numeric>237</DataTable.Cell>
-                    <DataTable.Cell numeric>8.0</DataTable.Cell>
-                </DataTable.Row>
+              <List.Accordion title="Top 5 - Gastos" id="3" titleStyle={styles.text} style={styles.screen}>
+                <DataTable style={{backgroundColor:'#fff'}}>
+                      <DataTable.Header style={{backgroundColor:'#00838F'}}>
+                          <DataTable.Title >Dessert</DataTable.Title>
+                          <DataTable.Title numeric>Calories</DataTable.Title>
+                          <DataTable.Title numeric>Fat</DataTable.Title>
+                      </DataTable.Header>
 
-                <DataTable.Row>
-                    <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
-                    <DataTable.Cell numeric>237</DataTable.Cell>
-                    <DataTable.Cell numeric>8.0</DataTable.Cell>
-                </DataTable.Row>
+                      <DataTable.Row>
+                          <DataTable.Cell>Frozen yogurt</DataTable.Cell>
+                          <DataTable.Cell numeric>159</DataTable.Cell>
+                          <DataTable.Cell numeric>6.0</DataTable.Cell>
+                      </DataTable.Row>
+                      
+                      <DataTable.Row>
+                          <DataTable.Cell>Frozen yogurt</DataTable.Cell>
+                          <DataTable.Cell numeric>159</DataTable.Cell>
+                          <DataTable.Cell numeric>6.0</DataTable.Cell>
+                      </DataTable.Row>
 
-                <DataTable.Pagination
-                    page={page}
-                    numberOfPages={3}
-                    onPageChange={(page) => setPage(page)}
-                    label="1-2 of 6"
-                    optionsPerPage={optionsPerPage}
-                    itemsPerPage={itemsPerPage}
-                    setItemsPerPage={setItemsPerPage}
-                    showFastPagination
-                    optionsLabel={'Rows per page'}
-                />
-            </DataTable>
-        </List.Accordion>
-      </List.AccordionGroup>
-</ScrollView>
+                      <DataTable.Row>
+                          <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
+                          <DataTable.Cell numeric>237</DataTable.Cell>
+                          <DataTable.Cell numeric>8.0</DataTable.Cell>
+                      </DataTable.Row>
+
+                      <DataTable.Row>
+                          <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
+                          <DataTable.Cell numeric>237</DataTable.Cell>
+                          <DataTable.Cell numeric>8.0</DataTable.Cell>
+                      </DataTable.Row>
+
+                      <DataTable.Row>
+                          <DataTable.Cell>Ice cream sandwich</DataTable.Cell>
+                          <DataTable.Cell numeric>237</DataTable.Cell>
+                          <DataTable.Cell numeric>8.0</DataTable.Cell>
+                      </DataTable.Row>
+
+                      <DataTable.Pagination
+                          page={page}
+                          numberOfPages={3}
+                          onPageChange={(page) => setPage(page)}
+                          label="1-2 of 6"
+                          optionsPerPage={optionsPerPage}
+                          itemsPerPage={itemsPerPage}
+                          setItemsPerPage={setItemsPerPage}
+                          showFastPagination
+                          optionsLabel={'Rows per page'}
+                      />
+                  </DataTable>
+              </List.Accordion>
+            </List.AccordionGroup>    
+      </ScrollView>
   );
 }
 
@@ -122,60 +126,13 @@ const styles = StyleSheet.create({
         flex:1,
         display:'flex',
         backgroundColor:'#2E2D33',
+        borderColor: 'white',
+        borderWidth: 0.5,
     },
     text:{
         color:'#fff',
         fontWeight:'700',
+        fontFamily: 'Red Hat Display',
         fontSize:18
     },
 })
-
-const dataPie = [
-    {
-      name: "Seoul",
-      population: 21500000,
-      color: "rgba(131, 167, 234, 1)",
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 15
-    },
-    {
-      name: "Toronto",
-      population: 2800000,
-      color: "#F00",
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 15
-    },
-    {
-      name: "Beijing",
-      population: 527612,
-      color: "red",
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 15
-    },
-    {
-      name: "New York",
-      population: 8538000,
-      color: "#ffffff",
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 15
-    },
-    {
-      name: "Moscow",
-      population: 11920000,
-      color: "rgb(0, 0, 255)",
-      legendFontColor: "#7F7F7F",
-      legendFontSize: 15
-    }
-  ];
-
-const dataBar = {
-    labels: ["January", "February", "March", "April", "May", "June"],
-    datasets: [
-        {
-        data: [20, 45, 28, 80, 99, 43]
-        }
-    ]
-};
-
-
-
