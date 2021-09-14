@@ -28,27 +28,30 @@ const HomeScreenNavigator = () => {
                 headerRight: () => (
                     <View style={styles.screen}>
                         <Button
-                            onPress={() => navigation.navigate('PaymentScreen')}
+                            onPress={() => navigation.navigate('PaymentStack')}
                             type="clear"
                             icon={<Ionicons name="cash-outline" size={35} color="white" />}
-                        />
-                        <Button
-                            onPress={() => navigation.navigate('NotificationScreen')}
-                            type="clear"
-                            icon={<Ionicons name="notifications-outline" size={35} color="white" />}
-                        />
+                        />                       
                     </View>
                 )}}        
             }           
         />
-        <Stack.Screen options={{headerShown: true, title: "Notificação"}}
-          name="NotificationScreen"
-          component={NotificationScreen}
-        />
-        <Stack.Screen options={{headerShown: true, title: 'Assinatura'}}
-          name="PaymentScreen"
+        <Stack.Screen
+          name="PaymentStack"
           component={PaymentScreen}
-        />
+          options={({ navigation }) => {
+                    return {
+                    title: 'Assinatura',  
+                    headerRight: () => (
+                            <Button
+                                onPress={() => navigation.navigate('PaymentScreen')}
+                                type="clear"
+                                name="PaymentScreen"
+                                icon={<Ionicons name="cash-outline" size={35} color="white" />}
+                            />
+                    )}}        
+                }
+        />       
          <Stack.Screen options={{headerShown: true, title: "Saúde"}}
           name="Saude"
           component={Saude}
@@ -74,22 +77,42 @@ const ProfileScreenNavigator = () => {
                     title: 'Perfil',  
                     headerRight: () => (
                             <Button
-                                onPress={() => navigation.navigate('NotificationScreen')}
+                                onPress={() => navigation.navigate('PaymentStack')}
                                 type="clear"
-                                icon={<Ionicons name="notifications-outline" size={35} color="white" />}
+                                icon={<Ionicons name="cash-outline" size={35} color="white" />}
+                            />
+                    )}}        
+                }
+        />      
+    </Stack.Navigator>
+    );
+}
+
+export {ProfileScreenNavigator};
+
+const NotificationScreenNavigator = () => {
+    return (
+    <Stack.Navigator screenOptions={screenOptions}>
+       <Stack.Screen
+          name="NotificationStack"
+          component={NotificationScreen}
+          options={({ navigation }) => {
+                    return {
+                    title: 'Notificações',  
+                    headerRight: () => (
+                            <Button
+                                onPress={() => navigation.navigate('PaymentStack')}
+                                type="clear"
+                                icon={<Ionicons name="cash-outline" size={35} color="white" />}
                             />
                     )}}        
                 }
         />
-        {/* <Stack.Screen
-        name="NestedScreen2"
-        component={NestedScreen}
-        /> */}
     </Stack.Navigator>
     );
 }
     
-export {ProfileScreenNavigator};
+export {NotificationScreenNavigator};
 
 const screenOptions = {
     headerStyle: {

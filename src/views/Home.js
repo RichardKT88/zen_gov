@@ -4,7 +4,6 @@ import { Card } from 'react-native-elements'
 
 import { cardList } from '../constants/CardList'
 
-
 const HomeScreen = ({navigation}) => (        
         <View style={styles.container}>
             <FlatList 
