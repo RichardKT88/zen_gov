@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { List, DataTable } from 'react-native-paper';
-import { BarChart, PieChart } from "react-native-chart-kit";
+import { PieChart } from "react-native-chart-kit";
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel  } from "victory-native";
 
-import { dataPie, dataBar } from '../data/SaudeData';
+import { dataPie, dataBar2 } from '../data/SaudeData';
 
 const Saude = () => {
 
@@ -27,22 +28,60 @@ const Saude = () => {
       <ScrollView style={styles.screen}>
               <List.AccordionGroup>
                 <List.Accordion title="Total Gasto Vs Receita $" id="1" titleStyle={styles.text} style={styles.screen}>
-                
-                      <BarChart
-                        width={width}
-                        height={height}
-                        data={dataBar}                 
-                        yAxisLabel={'R$'}
-                        chartConfig={{
-                          backgroundGradientFrom: '#4B4952',
-                          backgroundGradientTo: '#4B4952',
-                          decimalPlaces: 3,
-                          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                        }}
-                        style={{
-                          borderRadius: 5,
-                        }}
-                      />
+                        <VictoryChart
+                            domainPadding={{x: 40, y: 40}}
+                            color={'#fff'}                            
+                            style={{
+                                parent: {
+                                    border: "1px solid #ccc"
+                                },
+                                background: {
+                                    fill: "#4B4952"
+                                },
+                            }}>
+                            <VictoryAxis
+                                tickLabelComponent={<VictoryLabel dy={0} dx={10} angle={55}/>}
+                                tickValues={dataBar2}
+                                style={{
+                                axis: {
+                                    stroke: '#FFF'  //Muda a cor do eixo x
+                                },
+                                tickLabels: {
+                                    fill: '#FFF' //Muda a cor da legenda do eixo x
+                                }, 
+                                grid: {
+                                    stroke: '#FFF', //Muda a cor do eixo x nas 'grid lines'
+                                    strokeDasharray: '4',
+                                }
+                                }}
+                            />
+                            <VictoryAxis
+                                dependentAxis
+                                tickFormat={(y) => y}
+                                style={{
+                                axis: {
+                                    stroke: '#FFF'  //Muda a cor do eixo y
+                                },
+                                tickLabels: {
+                                    fill: '#FFF' //Muda a cor da legenda do eixo y
+                                }, 
+                                grid: {
+                                    stroke: '#FFF', //Muda a cor do eixo y nas 'grid lines'
+                                    strokeDasharray: '4',
+                                }
+                                }}
+                            />
+                            <VictoryBar data={dataBar2} 
+                                    x="year" 
+                                    y="earnings"
+                                    barRatio={1}               
+                                    style={{
+                                    data: {
+                                        fill: ({ datum }) => datum.fill || 'black'                             
+                                    }
+                                    }}
+                            />
+                        </VictoryChart>                    
                   
                 </List.Accordion>
 

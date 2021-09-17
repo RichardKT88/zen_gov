@@ -36,11 +36,10 @@ export const dataPie = [
     },
   ]
 
-  export const dataBar = {
-    labels: ["January", "February", "March", "April", "May", "June"],
-    datasets: [
-        {
-        data: [20, 45, 28, 80, 99, 43]
-        }
-    ]
-};
+export const dataBar2 = [
+  { year: '2011', earnings: 13000 , fill: 'red'},
+  { year: '2012', earnings: 16500 , fill: 'blue'},
+  { year: '2013', earnings: 14250, fill: 'green' },
+  { year: '2014', earnings: 19000, fill: 'pink'},
+  { year: '2015', earnings: 19000,}
+];
