@@ -3,14 +3,21 @@ import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
-import Saude from '../views/Saude'
-import Educacao from '../views/Educacao'
 import HomeScreen from '../views/Home'
 import NotificationScreen from '../views/Notification'
 import PaymentScreen from '../views/Payment'
 import ProfileScreen from '../views/Profile';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import Saude from '../views/Saude'
+import Educacao from '../views/Educacao'
+import Seguranca from '../views/Seguranca';
+import Trabalho from '../views/Trabalho';
+import Obras from '../views/Obras';
+import Transporte from '../views/Transporte';
+import Cultura from '../views/Cultura';
+import Esporte from '../views/Esporte';
 
 
 const Stack = createNativeStackNavigator()
@@ -59,6 +66,30 @@ const HomeScreenNavigator = () => {
          <Stack.Screen options={{headerShown: true, title: "Educação"}}
           name="Educacao"
           component={Educacao}
+        />
+         <Stack.Screen options={{headerShown: true, title: "Segurança"}}
+          name="Seguranca"
+          component={Seguranca}
+        />
+         <Stack.Screen options={{headerShown: true, title: "Trabalho"}}
+          name="Trabalho"
+          component={Trabalho}
+        />
+         <Stack.Screen options={{headerShown: true, title: "Obras"}}
+          name="Obras"
+          component={Obras}
+        />
+         <Stack.Screen options={{headerShown: true, title: "Transporte"}}
+          name="Transporte"
+          component={Transporte}
+        />
+         <Stack.Screen options={{headerShown: true, title: "Cultura"}}
+          name="Cultura"
+          component={Cultura}
+        />
+         <Stack.Screen options={{headerShown: true, title: "Esporte e Lazer"}}
+          name="Esporte"
+          component={Esporte}
         />
       </Stack.Navigator>
     );

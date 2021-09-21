@@ -6,7 +6,7 @@ import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel  } from "victory-na
 
 import {dataBar, dataPie} from  '../data/Data'
 
-const Saude = () => {
+const Cultura = () => {
 
     //DATA TABLE CONSTANTS
     const optionsPerPage = [2, 3, 4];
@@ -41,7 +41,7 @@ const Saude = () => {
                             }}>
                             <VictoryAxis
                                 tickLabelComponent={<VictoryLabel dy={0} dx={10} angle={55}/>}
-                                tickValues={dataBar2}
+                                tickValues={dataBar}
                                 style={{
                                 axis: {
                                     stroke: '#FFF'  //Muda a cor do eixo x
@@ -152,7 +152,7 @@ const Saude = () => {
   );
 }
 
-export default Saude
+export default Cultura
 
 const styles = StyleSheet.create({
     screen:{
