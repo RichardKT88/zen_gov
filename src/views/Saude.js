@@ -41,7 +41,7 @@ const Saude = () => {
                             }}>
                             <VictoryAxis
                                 tickLabelComponent={<VictoryLabel dy={0} dx={10} angle={55}/>}
-                                tickValues={dataBar2}
+                                tickValues={dataBar}
                                 style={{
                                 axis: {
                                     stroke: '#FFF'  //Muda a cor do eixo x
