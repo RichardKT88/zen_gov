@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {BackHandler, TouchableOpacity, View} from "react-native";
 import Icons from 'react-native-vector-icons/MaterialIcons';
 

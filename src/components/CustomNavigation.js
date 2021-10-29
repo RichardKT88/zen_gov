@@ -11,12 +11,12 @@ import ProfileScreen from '../views/Profile';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Saude from '../views/Saude'
-import Educacao from '../views/Educacao'
+import Educacao from '../views/agencies/Educacao'
 import Seguranca from '../views/Seguranca';
 import Trabalho from '../views/Trabalho';
 import Obras from '../views/Obras';
 import Transporte from '../views/Transporte';
-import Cultura from '../views/Cultura';
+import Cultura from '../views/agencies/Cultura';
 import Esporte from '../views/Esporte';
 
 
