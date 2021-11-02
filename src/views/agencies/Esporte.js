@@ -4,7 +4,8 @@ import { List, DataTable } from 'react-native-paper';
 import { PieChart } from "react-native-chart-kit";
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel  } from "victory-native";
 
-import {dataBar, dataPie} from  '../data/Data'
+import {dataBar, dataPie} from  '../../data/Data'
+
 
 const Esporte = () => {
 

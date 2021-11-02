@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import { 
-    ImageBackground, 
     Text, 
     StyleSheet, 
     View,
     Image, 
     TouchableOpacity,
-    Alert, 
 } from 'react-native';
-import { Button } from "react-native-elements";
 
-import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
 
 export default class Login extends Component {
     render() {
@@ -20,22 +15,32 @@ export default class Login extends Component {
             <View style={styles.screen}>
                 <View style={styles.titleBackground}>
                     <Text style={styles.title}>Zen Gov</Text>
+                    
                 </View>                
-                <Image source={require('../assets/images/logo.png')}/>               
-                <Button
-                    color="#00838F"
-                    title="Anônimo"
-                />   
-                 <Text style={styles.subtitle}>Ou</Text>            
-                <Button                    
-                    icon={<Ionicons name="logo-google" size={35} color="white"/>}                    
-                    title="Login com o Google"
-                />
-                <Button                    
-                    icon={<Ionicons name="logo-facebook" size={35} color="white"/>}                    
-                    title="Login com o Facebook"
-                />
+                <Image source={require('../assets/images/logo.png')}/>
+
+                <TouchableOpacity style={styles.buttonDefault} onPress={""}>
+                    <Text style={styles.subtitle}>Entrar Anônimo</Text>
+                </TouchableOpacity>               
+               
+                 <Text style={styles.title}>Ou</Text>
+                
+                <TouchableOpacity style={styles.buttonDefault} onPress={""}>
+                    <Text style={styles.subtitle}>
+                        <Ionicons style={styles.iconDefault} name="logo-facebook" />
+                        Login com o Facebook
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.buttonDefault} onPress={""}>
+                    <Text style={styles.subtitle}>
+                        <Ionicons style={styles.iconDefault} name="logo-google" />
+                        Login com o Google
+                    </Text>
+                </TouchableOpacity>
+                
             </View>
+           
            
         )
 
@@ -56,7 +61,8 @@ const styles = StyleSheet.create({
         display:'flex',
         backgroundColor: '#00838F',
         width: '100%',
-        marginTop: -200,        
+        marginTop: -100,
+        marginBottom: 20        
     },  
     title:{
         color:'#fff',
@@ -65,8 +71,22 @@ const styles = StyleSheet.create({
     },
     subtitle:{
         color:'#fff',
+        fontSize: 25,       
+    },
+    iconDefault: {
         fontSize: 30,
+        // color:'pink',
+        // backgroundColor: 'yellow',
+       
+    },
+    buttonDefault: {
+        height: 45,
         backgroundColor: '#00838F',
+        width: 350,
+        borderRadius: 25,
+        marginTop: 30,
+        justifyContent:'center',
+        alignItems:'center',
     }
 })
 

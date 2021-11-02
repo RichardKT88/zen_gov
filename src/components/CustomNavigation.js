@@ -10,14 +10,14 @@ import ProfileScreen from '../views/Profile';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import Saude from '../views/Saude'
+import Saude from '../views/agencies/Saude'
 import Educacao from '../views/agencies/Educacao'
-import Seguranca from '../views/Seguranca';
-import Trabalho from '../views/Trabalho';
-import Obras from '../views/Obras';
-import Transporte from '../views/Transporte';
+import Seguranca from '../views/agencies/Seguranca';
+import Trabalho from '../views/agencies/Trabalho';
+import Obras from '../views/agencies/Obras';
+import Transporte from '../views/agencies/Transporte';
 import Cultura from '../views/agencies/Cultura';
-import Esporte from '../views/Esporte';
+import Esporte from '../views/agencies/Esporte';
 
 
 const Stack = createNativeStackNavigator()
