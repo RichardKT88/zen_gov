@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "785661588633",
+    "project_id": "zengov-da7c8",
+    "storage_bucket": "zengov-da7c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785661588633:android:f64b3ab1ca51ab3ed77408",
+        "android_client_info": {
+          "package_name": "com.zen_gov"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785661588633-nif0u2kqeldtp85rgfotbhq51sf76no5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM5EUblb653d1A47RyThmWEpNiog_OoaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785661588633-nif0u2kqeldtp85rgfotbhq51sf76no5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

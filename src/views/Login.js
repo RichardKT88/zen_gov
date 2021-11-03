@@ -5,11 +5,39 @@ import {
     View,
     Image, 
     TouchableOpacity,
+    ToastAndroid,
 } from 'react-native';
 
+
 import Ionicons from 'react-native-vector-icons/Ionicons';
+// import { app } from '../config/firebase';
+import auth from '@react-native-firebase/auth';
+
+
 
 export default class Login extends Component {
+  
+    // signIn = () => {
+    //     app.signInAnonymously()
+    //         .then(() => this.props.navigation.navigate('Home',{type:'anonymous'}))
+    //         .catch(error => {
+    //             this.setState({ errorMessage: error.message }, () => {
+    //                 ToastAndroid.show(this.state.errorMessage, ToastAndroid.SHORT);
+    //             })
+    //         });
+    // }
+    signIn =() => {
+        auth()
+        .signInAnonymously()
+        .then(() => this.props.navigation.navigate('HomeStack'))
+        .catch(error => {
+            if (error.code === 'auth/operation-not-allowed') {
+            console.log('Enable anonymous in your firebase console.');
+            }
+
+            console.error(error);
+        });
+    }
     render() {
         return (
             <View style={styles.screen}>
@@ -19,7 +47,7 @@ export default class Login extends Component {
                 </View>                
                 <Image source={require('../assets/images/logo.png')}/>
 
-                <TouchableOpacity style={styles.buttonDefault} onPress={""}>
+                <TouchableOpacity style={styles.buttonDefault} onPress={() => this.signIn()}>
                     <Text style={styles.subtitle}>Entrar Anônimo</Text>
                 </TouchableOpacity>               
                
