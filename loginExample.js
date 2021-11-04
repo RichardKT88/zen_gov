@@ -10,19 +10,19 @@ import {
 
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-// import { app } from '../config/firebase';
+import { app } from '../config/firebase';
 import auth from '@react-native-firebase/auth';
-import { anonymousProvider, facebookProvider } from "../config/authMethods";
-import socialMediaAuth from "../service/auth";
+import { anonymousProvider, facebookProvider } from "./src/config/authMethods";
+import socialMediaAuth from "./src/service/auth";
 
 
 
-export default class Login extends Component {
+function Login () {
   
-    signIn =() => {
+    signIn =({navigation}) => {
         auth()
         .signInAnonymously()
-        .then(() => this.props.navigation.navigate('HomeScreen'))
+        .then(() => navigation.navigate('HomeScreen'))
         .catch(error => {
             if (error.code === 'auth/operation-not-allowed') {
             console.log('Enable anonymous in your firebase console.');
@@ -31,36 +31,37 @@ export default class Login extends Component {
             console.error(error);
         });
     }
-    handleOnClick = async (provider) => {
+    const handleOnClick = async (provider) => {
         const res = await socialMediaAuth(provider);
         console.log(res);
     }
-    render() {
+   
+    //render() {
         return (
             <View style={styles.screen}>
                 <View style={styles.titleBackground}>
                     <Text style={styles.title}>Zen Gov</Text>
                     
                 </View>                
-                <Image source={require('../assets/images/logo.png')}/>
+                <Image source={require('./src/assets/images/logo.png')}/>
 
-                <TouchableOpacity style={styles.buttonDefault} onPress={() => this.signIn()}>
-                    <Text style={styles.subtitle}>Entrar Anônimo</Text>
+                <TouchableOpacity style={styles.buttonDefault} onPress={() => this.signIn(navigation)}>
+                    <Text style={styles.subtitle}>Entrar Anônimo Teste</Text>
                 </TouchableOpacity>               
                
                  <Text style={styles.title}>Ou</Text>
                 
-                <TouchableOpacity style={styles.buttonDefault} onPress={() => handleOnClick(facebookProvider)}>
+                <TouchableOpacity style={styles.buttonDefault} onPress={() => navigation.navigate('HomeScreen')}>
                     <Text style={styles.subtitle}>
                         <Ionicons style={styles.iconDefault} name="logo-facebook" />
-                        Login com o Facebook
+                        Login com o Facebook Test
                     </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.buttonDefault} onPress={""}>
                     <Text style={styles.subtitle}>
                         <Ionicons style={styles.iconDefault} name="logo-google" />
-                        Login com o Google
+                        Login com o Google Test
                     </Text>
                 </TouchableOpacity>
                 
@@ -70,7 +71,9 @@ export default class Login extends Component {
         )
 
     }
-}
+//}
+
+export default Login;
 
 const styles = StyleSheet.create({
     screen:{

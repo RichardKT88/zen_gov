@@ -7,6 +7,7 @@ import HomeScreen from '../views/Home'
 import NotificationScreen from '../views/Notification'
 import PaymentScreen from '../views/Payment'
 import ProfileScreen from '../views/Profile';
+import LoginScreen from '../views/Login';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
