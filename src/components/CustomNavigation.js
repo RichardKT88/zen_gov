@@ -3,11 +3,13 @@ import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
-import HomeScreen from '../views/Home'
-import NotificationScreen from '../views/Notification'
-import PaymentScreen from '../views/Payment'
-import ProfileScreen from '../views/Profile';
-import LoginScreen from '../views/Login';
+import Home from '../views/Home'
+import Notification from '../views/Notification'
+import Payment from '../views/Payment'
+import Profile from '../views/Profile';
+import Login from '../views/Login';
+import LoginExample from '../../loginExample'
+import LoginExample2 from '../../login2'
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -26,9 +28,13 @@ const Stack = createNativeStackNavigator()
 const HomeScreenNavigator = () => {
     return (
       <Stack.Navigator screenOptions={screenOptions}>
+          <Stack.Screen options={{headerShown: false}}
+            name = "LoginExample2"
+            component={LoginExample2}          
+          />              
          <Stack.Screen 
-          name="HomeStack"
-          component={HomeScreen}
+          name="Home"
+          component={Home}
           options={({ navigation }) => {
                 return {
                 title: 'Zen Gov',
@@ -36,7 +42,7 @@ const HomeScreenNavigator = () => {
                 headerRight: () => (
                     <View style={styles.screen}>
                         <Button
-                            onPress={() => navigation.navigate('PaymentStack')}
+                            onPress={() => navigation.navigate('Payment')}
                             type="clear"
                             icon={<Ionicons name="cash-outline" size={35} color="white" />}
                         />                       
@@ -45,21 +51,21 @@ const HomeScreenNavigator = () => {
             }           
         />
         <Stack.Screen
-          name="PaymentStack"
-          component={PaymentScreen}
+          name="Payment"
+          component={Payment}
           options={({ navigation }) => {
                     return {
                     title: 'Assinatura',  
                     headerRight: () => (
                             <Button
-                                onPress={() => navigation.navigate('PaymentScreen')}
+                                onPress={() => navigation.navigate('Payment')}
                                 type="clear"
-                                name="PaymentScreen"
+                                name="Payment"
                                 icon={<Ionicons name="cash-outline" size={35} color="white" />}
                             />
                     )}}        
                 }
-        />       
+        />        
          <Stack.Screen options={{headerShown: true, title: "Saúde"}}
           name="Saude"
           component={Saude}
@@ -102,14 +108,14 @@ const ProfileScreenNavigator = () => {
     return (
     <Stack.Navigator screenOptions={screenOptions}>
        <Stack.Screen options={{headerShown: true, title: "Perfil"}}
-          name="ProfileStack"
-          component={ProfileScreen}
+          name="Profile"
+          component={Profile}
           options={({ navigation }) => {
                     return {
                     title: 'Perfil',  
                     headerRight: () => (
                             <Button
-                                onPress={() => navigation.navigate('PaymentStack')}
+                                onPress={() => navigation.navigate('Payment')}
                                 type="clear"
                                 icon={<Ionicons name="cash-outline" size={35} color="white" />}
                             />
@@ -126,14 +132,14 @@ const NotificationScreenNavigator = () => {
     return (
     <Stack.Navigator screenOptions={screenOptions}>
        <Stack.Screen
-          name="NotificationStack"
-          component={NotificationScreen}
+          name="Notification"
+          component={Notification}
           options={({ navigation }) => {
                     return {
                     title: 'Notificações',  
                     headerRight: () => (
                             <Button
-                                onPress={() => navigation.navigate('PaymentStack')}
+                                onPress={() => navigation.navigate('Payment')}
                                 type="clear"
                                 icon={<Ionicons name="cash-outline" size={35} color="white" />}
                             />

@@ -11,9 +11,9 @@ import {
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // import { app } from '../config/firebase';
-import auth from '@react-native-firebase/auth';
-import { anonymousProvider, facebookProvider } from "../config/authMethods";
-import socialMediaAuth from "../service/auth";
+// import auth from '@react-native-firebase/auth';
+// import { anonymousProvider, facebookProvider } from "../config/authMethods";
+// import socialMediaAuth from "../service/auth";
 
 
 
