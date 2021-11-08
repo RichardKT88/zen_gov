@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs' 
 import {HomeScreenNavigator, ProfileScreenNavigator, NotificationScreenNavigator} from './CustomNavigation'
-
+import login2 from '../../login2';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator()
@@ -10,7 +10,7 @@ export default props => (
     <Tab.Navigator 
         initialRouteName="Home"
         screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ focused, color }) => {
           let iconName;
 
           switch (route.name) {
