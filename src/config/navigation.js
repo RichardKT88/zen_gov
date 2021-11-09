@@ -25,7 +25,7 @@ import Transporte from '../views/agencies/Transporte';
 import Cultura from '../views/agencies/Cultura';
 import Esporte from '../views/agencies/Esporte';
 
-const AuthStack = createStackNavigator();
+const AuthStack = createNativeStackNavigator();
 const AuthStackScreen = () => (
   <AuthStack.Navigator>
     <AuthStack.Screen
