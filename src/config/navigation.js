@@ -1,6 +1,4 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-elements';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
@@ -31,7 +29,12 @@ const AuthStackScreen = () => (
     <AuthStack.Screen
       name="Login"
       component={Login}
-      options={{ title: "Sign In" }}
+      options={{ headerShown: false  }}
+    /> 
+    <AuthStack.Screen
+      name="HomeAuth"
+      component={TabScreen}
+      options={{ headerShown: false  }}
     /> 
   </AuthStack.Navigator>
 );
@@ -40,47 +43,12 @@ const AuthStackScreen = () => (
 const HomeStack = createNativeStackNavigator();
 const HomeScreenNavigator = () => {
     return (
-        <HomeStack.Navigator screenOptions={screenOptions}
-              // initialRouteName="login2"
-        >
-          {/* <Stack.Screen options={{headerShown: false}}
-            name = "login2"
-            component={login2}          
-          />               */}
+        <HomeStack.Navigator screenOptions={screenOptions}>         
           <HomeStack.Screen 
             name="HomeStack"
             component={HomeScreen}
-            options={({ navigation }) => {
-                  return {
-                  title: 'Zen Gov',
-                  headerShown: true,  
-                  headerRight: () => (
-                      <View style={styles.screen}>
-                          <Button
-                              onPress={() => navigation.navigate('PaymentStack')}
-                              type="clear"
-                              icon={<Ionicons name="cash-outline" size={35} color="white" />}
-                          />                       
-                      </View>
-                  )}}        
-              }           
-          />
-          <HomeStack.Screen
-            name="PaymentStack"
-            component={PaymentScreen}
-            options={({ navigation }) => {
-                      return {
-                      title: 'Assinatura',  
-                      headerRight: () => (
-                              <Button
-                                  onPress={() => navigation.navigate('Payment')}
-                                  type="clear"
-                                  name="Payment"
-                                  icon={<Ionicons name="cash-outline" size={35} color="white" />}
-                              />
-                      )}}        
-                  }
-          />        
+            options={{ title: 'Zen Gov', headerShown: true }}           
+          />       
           <HomeStack.Screen options={{headerShown: true, title: "Saúde"}}
             name="Saude"
             component={Saude}
@@ -112,37 +80,7 @@ const HomeScreenNavigator = () => {
           <HomeStack.Screen options={{headerShown: true, title: "Esporte e Lazer"}}
             name="Esporte"
             component={Esporte}
-          />
-        <HomeStack.Screen
-          name="NotificationStack"
-          component={NotificationScreen}
-          options={({ navigation }) => {
-                    return {
-                    title: 'Notificações',  
-                    headerRight: () => (
-                            <Button
-                                onPress={() => navigation.navigate('Payment')}
-                                type="clear"
-                                icon={<Ionicons name="cash-outline" size={35} color="white" />}
-                            />
-                    )}}        
-                }
-        />
-        <HomeStack.Screen options={{headerShown: true, title: "Perfil"}}
-          name="ProfileStack"
-          component={ProfileScreen}
-          options={({ navigation }) => {
-                    return {
-                    title: 'Perfil',  
-                    headerRight: () => (
-                            <Button
-                                onPress={() => navigation.navigate('Payment')}
-                                type="clear"
-                                icon={<Ionicons name="cash-outline" size={35} color="white" />}
-                            />
-                    )}}        
-                }
-        />      
+          />       
         </HomeStack.Navigator>
     );
   }
@@ -154,17 +92,7 @@ const NotificationScreenNavigator = () => {
          <NotificationStack.Screen
           name="NotificationStack"
           component={NotificationScreen}
-          options={({ navigation }) => {
-                    return {
-                    title: 'Notificações',  
-                    headerRight: () => (
-                            <Button
-                                onPress={() => navigation.navigate('PaymentStack')}
-                                type="clear"
-                                icon={<Ionicons name="cash-outline" size={35} color="white" />}
-                            />
-                    )}}        
-                }
+          options={{ title: 'Notificações' }}   
         />
     </NotificationStack.Navigator>
     );
@@ -177,17 +105,7 @@ const ProfileScreenNavigator = () => {
         <ProfileStack.Screen options={{headerShown: true, title: "Perfil"}}
           name="ProfileStack"
           component={ProfileScreen}
-          options={({ navigation }) => {
-                    return {
-                    title: 'Perfil',  
-                    headerRight: () => (
-                            <Button
-                                onPress={() => navigation.navigate('Payment')}
-                                type="clear"
-                                icon={<Ionicons name="cash-outline" size={35} color="white" />}
-                            />
-                    )}}        
-                }
+          options={{ title: 'Perfil' }}
         />      
     </ProfileStack.Navigator>
     );
@@ -252,7 +170,7 @@ const TabScreen = () => (
 
 export default () => (
   <NavigationContainer>
-      <TabScreen />
+      <AuthStackScreen />
   </NavigationContainer>
 );
     
@@ -268,13 +186,3 @@ const screenOptions = {
         fontFamily: 'Permanent Marker Regular' 
     },   
 }
-
-const styles = StyleSheet.create({
-  screen:{
-      display:'flex',
-      flexDirection: 'row',     
-      paddingBottom: 10,
-      paddingTop: 10
-  },  
-})
-
