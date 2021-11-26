@@ -1,7 +1,11 @@
 {
     "cSpell.words": [
+        "Acces",
         "appspot",
+        "fbsdk",
         "firebaseapp",
+        "Signin",
         "zengov"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

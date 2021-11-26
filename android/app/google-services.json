@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "785661588633-s75ue7vnjlp1t0ogisbrtu6g89k3tutf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zen_gov",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
           "client_id": "785661588633-nif0u2kqeldtp85rgfotbhq51sf76no5.apps.googleusercontent.com",
           "client_type": 3
         }
